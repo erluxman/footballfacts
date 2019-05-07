@@ -119,16 +119,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     UI.displayNotDoneTasks()
 })
 
-document.querySelector("#todo-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const work = document.querySelector("#todo-field").value
-    const todo = new Todo(work, false)
-    UI.addNotDonetask(todo)
-    DB.addTask(todo);
-    UI.showAlert("Successfully Added", "success")
-    UI.clearInput()
-})
-
 document.querySelector("#todo-list").addEventListener('click', handleDelete)
 document.querySelector("#done-list").addEventListener('click', handleDelete)
 
