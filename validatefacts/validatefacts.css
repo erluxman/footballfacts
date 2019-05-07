@@ -1,20 +1,3 @@
-.container{
-    margin: 30px;
-}
-
-tbody{
-    margin-left: 50px;
-}
-.done-mark{
-    font-size: 30px;
-    color: aqua;
-    margin: 5px;
-}
-
-#message-dialog{
-    min-height: 50px;
-    max-height: 50px;
-}
 
 .not-done-mark{
     font-size: 30px;
@@ -22,25 +5,9 @@ tbody{
     margin: 5px;
 }
 
-.hidden{
-    visibility: hidden;
-}
-
-.done-work-text{
-    font-size: 20px;
-    min-width: 200px;
-    max-width: 200px;
-    color: darkslategrey;
-}
-
 .not-done-work-text{
     font-size: 20px;
     min-width: 200px;
     max-width: 200px;
     color: black;
-}
-
-.delete-task{
-    font-size: 30px;
-    color: aqua;
 }

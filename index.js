@@ -5,26 +5,20 @@ class Todo {
     }
 }
 
-
 class DB {
-
     static getAlltasks() {
-
         let tasks;
         if (localStorage.getItem('tasks') === null) {
             tasks = [];
         } else {
             tasks = JSON.parse(localStorage.getItem('tasks'));
         }
-
         return tasks;
     }
     static getDoneTasks() {
-
         return DB.getAlltasks().filter(item => {
             return item.done === true;
         });
-
     }
 
     static getNotDoneTasks() {
