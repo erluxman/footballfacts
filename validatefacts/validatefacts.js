@@ -97,30 +97,29 @@ class UI {
     }
 
     static clearInput() {
-        document.querySelector("#todo-field").value = ""
+        document.querySelector("#todo-field").value = "";
     }
 
     static showAlert(message, className) {
         const alert = document.querySelector('#message-dialog');
         alert.className = `alert alert-${className}`;
         const messageChild = document.createTextNode(message);
-        alert.appendChild(messageChild)
+        alert.appendChild(messageChild);
         setTimeout(
             () => {
                 alert.removeChild(messageChild);
                 alert.className = `hidden`
             }
-            , 1500)
+            , 1500);
     }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    UI.displayDoneTasks()
     UI.displayNotDoneTasks()
 })
 
 document.querySelector("#todo-list").addEventListener('click', handleDelete)
-document.querySelector("#done-list").addEventListener('click', handleDelete)
+//document.querySelector("#done-list").addEventListener('click', handleDelete)
 
 function handleDelete(e) {
     const classList = e.target.classList
@@ -128,18 +127,11 @@ function handleDelete(e) {
         UI.removeTask(e.target)
         DB.deleteTask(e.target.parentElement.previousElementSibling.textContent)
         UI.showAlert("Deleted", "danger")
-    } else if (classList.contains('done-mark')) {
+    }else if (classList.contains('not-done-mark')) {
         UI.removeTask(e.target)
-        UI.addNotDonetask(new Todo(e.target.parentElement.previousElementSibling.previousElementSibling.textContent, true))
-        DB.updateTask(e.target.parentElement.previousElementSibling.previousElementSibling.textContent, false)
-        UI.showAlert("Undo Complete", "success")
-    } else if (classList.contains('not-done-mark')) {
-        UI.removeTask(e.target)
-        UI.addDoneTask(new Todo(e.target.parentElement.previousElementSibling.previousElementSibling.textContent, true))
         DB.updateTask(e.target.parentElement.previousElementSibling.previousElementSibling.textContent, true)
         UI.showAlert("Completed", "success")
-    }
-    else {
+    }else{
 
     }
 }
